@@ -1,0 +1,612 @@
+{
+	"info": {
+		"_postman_id": "59803de1-8f9b-40f7-b955-1282157d59d7",
+		"name": "Library Management API",
+		"description": "Postman collection for the Library Management System API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31163386",
+		"_collection_link": "https://interstellar-shuttle-925408.postman.co/workspace/New-Team-Workspace~b8bb65b7-3777-40e6-b21f-7377971bf8e1/collection/31163386-59803de1-8f9b-40f7-b955-1282157d59d7?action=share&source=collection_link&creator=31163386"
+	},
+	"item": [
+		{
+			"name": "User Registration",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Olus Olus\",\n  \"email\": \"joyelere14@gmail.com\",\n  \"password\": \"temitope112\",\n  \"password_confirmation\": \"temitope112\"\n}"
+				},
+				"url": "http://127.0.0.1:8000/api/users"
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"joyelere@gmail.com\",\n  \"password\": \"temitope112\"\n}"
+				},
+				"url": "http://localhost:8000/api/login"
+			},
+			"response": []
+		},
+		{
+			"name": "User Logout",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "9|52krUR1RV5H9iFWWohZ21uvwazpSM9nfURUvHVnKda30ed0b"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:8000/api/logout"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Books",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "7|84aMFsa3YjvepZsvlaQPbyv1JUDFH8PCKz2GLhuw17657581"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/books?search=To Kill",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"books"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "To Kill"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Book",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "8|OQXKmibAgVTuOGDMd5KiQQNGBRi8tVHwf3LRlQj5c275b387"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Book Title\",\n  \"author_id\": 4,\n  \"published_date\": \"1925-04-10\",\n  \"isbn\": \"1234567890123\"\n}"
+				},
+				"url": "http://localhost:8000/api/books"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Book Details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "8|OQXKmibAgVTuOGDMd5KiQQNGBRi8tVHwf3LRlQj5c275b387"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/api/books/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Book",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "8|OQXKmibAgVTuOGDMd5KiQQNGBRi8tVHwf3LRlQj5c275b387"
+					}
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Things not walking out\",\n  \"author_id\": 4,\n  \"published_date\": \"1925-04-10\",\n  \"isbn\": \"1234567890123\"\n}"
+				},
+				"url": "http://localhost:8000/api/books/5"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Book",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "8|OQXKmibAgVTuOGDMd5KiQQNGBRi8tVHwf3LRlQj5c275b387"
+					}
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/api/books/5"
+			},
+			"response": []
+		},
+		{
+			"name": "Borrow Book",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "9|52krUR1RV5H9iFWWohZ21uvwazpSM9nfURUvHVnKda30ed0b"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"days\": 6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/books/3/borrow"
+			},
+			"response": []
+		},
+		{
+			"name": "Return Book",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "9|52krUR1RV5H9iFWWohZ21uvwazpSM9nfURUvHVnKda30ed0b"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/api/books/3/return"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "11|9cKQugpOMVJHjzqjHVCxwZGnn3h9yaUZKobuIelN20a7cb0d"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/api/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "11|9cKQugpOMVJHjzqjHVCxwZGnn3h9yaUZKobuIelN20a7cb0d"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/users/3"
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "11|9cKQugpOMVJHjzqjHVCxwZGnn3h9yaUZKobuIelN20a7cb0d"
+					}
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n     \"name\": \"Paul olayemi\",\n    \"email\": \"joyelere1@gmail.com\",\n    \"password\": \"temitope112\"\n}"
+				},
+				"url": "http://localhost:8000/api/users/3"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "11|9cKQugpOMVJHjzqjHVCxwZGnn3h9yaUZKobuIelN20a7cb0d"
+					}
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/api/users/13"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Authors",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "11|9cKQugpOMVJHjzqjHVCxwZGnn3h9yaUZKobuIelN20a7cb0d"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/api/authors"
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Author",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "11|9cKQugpOMVJHjzqjHVCxwZGnn3h9yaUZKobuIelN20a7cb0d"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Okoye Ola\",\n    \"bio\": \"Software Engineer\",\n    \"birthdate\": \"1999-08-15\"\n}"
+				},
+				"url": "http://localhost:8000/api/authors"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Author Details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "11|9cKQugpOMVJHjzqjHVCxwZGnn3h9yaUZKobuIelN20a7cb0d"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/api/authors/5"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Author",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "11|9cKQugpOMVJHjzqjHVCxwZGnn3h9yaUZKobuIelN20a7cb0d"
+					}
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Okoye Olayemi\",\n    \"bio\": \"Software Engineer\",\n    \"birthdate\": \"1999-08-15\"\n}"
+				},
+				"url": "http://localhost:8000/api/authors/5"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Author",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "11|9cKQugpOMVJHjzqjHVCxwZGnn3h9yaUZKobuIelN20a7cb0d"
+					}
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/api/authors/5"
+			},
+			"response": []
+		}
+	]
+}
