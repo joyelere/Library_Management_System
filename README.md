@@ -150,7 +150,3 @@ Your application should now be running at http://localhost:8000.
 - **Borrowing & Returning Books:** Test the borrowing and returning system with authenticated users.
 - **User Management:** As an Admin, test viewing and updating user details.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
