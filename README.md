@@ -10,7 +10,15 @@ This project is a **Library Management System** built with **Laravel 11** and **
 - **User Management:** Admins can manage users (view, update, and delete users).
 - **Role-based Authorization:** Role-based access control for actions like borrowing, returning books, or managing records.
 
-## Requirements
+## Table of Contents
+- [Project Setup](#project-setup)
+- [API Endpoints](#api-endpoints)
+- [Testing the API with Postman](#testing-with-postman)
+
+
+## Project Setup
+
+### Requirements
 - PHP 8.0+
 - Composer
 - MySQL or any compatible DB
@@ -18,7 +26,7 @@ This project is a **Library Management System** built with **Laravel 11** and **
 - Laravel 11
 - Laravel Sanctum
 
-## Installation
+### Installation
 
 ### 1. Clone the Repository
 ```bash
