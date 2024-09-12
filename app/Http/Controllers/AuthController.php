@@ -16,7 +16,7 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed|min:5',
-             'role' => [Rule::in(['Admin', 'Librarian', 'Member'])]
+            'role' => [Rule::in(['Admin', 'Librarian', 'Member'])]
         ]);
 
         $user = User::create($validatedData);
