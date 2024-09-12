@@ -1,4 +1,4 @@
-# Laravel Library Management System
+# Library Management System
 
 This project is a **Library Management System** built with **Laravel 11** and **Laravel Sanctum** for user authentication. It allows users to borrow and return books, manage authors, track borrow records, and manage user data. The API supports both public routes for registration and login, and protected routes for managing books, authors, borrow records, and users.
 
