@@ -23,14 +23,15 @@ class UserController extends Controller
     // Retrieve a particular User by its ID (Admins Only)
     public function show($id)
     {
-        // userAutorization check
-        Gate::authorize('view', User::class);
 
         $user = User::find($id);
 
         if (!$user) {
             return response()->json(['message' => 'User not found.'], 404);
         }
+
+        // userAutorization check
+        Gate::authorize('view', $user);
 
         return response()->json($user);
     }
