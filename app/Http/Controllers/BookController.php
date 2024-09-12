@@ -17,8 +17,10 @@ class BookController extends Controller
         $perPage = $request->input('per_page', 10); // Default to 10 items per page
 
         $books = Book::where('title', 'like', "%{$search}%")
-            ->orWhere('author', 'like', "%{$search}%")
             ->orWhere('isbn', 'like', "%{$search}%")
+            ->orWhereHas('author', function ($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%");
+            })
             ->paginate($perPage); // Paginate results based on per_page parameter
 
         return response()->json($books);
