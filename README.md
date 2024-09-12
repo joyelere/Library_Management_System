@@ -32,8 +32,125 @@ composer install
 npm install
 ```
 
-### 2. Install Dependencies
+### 3. Configure Environment Variables
+##### Create a .env file by copying .env.example:
+
 ```bash
-composer install
-npm install
+cp .env.example .env
 ```
+#### Update your .env file with SQLite configuration and other necessary details:
+
+### 4. PHP Configuration for SQLite
+Ensure SQLite support is enabled in your PHP configuration:
+
+1. Locate your php.ini file. This is usually found in your PHP installation directory.
+
+2. Open php.ini and make sure the following extensions are uncommented:
+   
+```ini
+extension=sqlite3
+extension=pdo_sqlite
+```
+Remove the semicolon (;) at the beginning of these lines if present.
+
+### 5. Generate Application Key
+```bash
+php artisan key:generate
+```
+This command generates a new encryption key for your application, essential for securing encrypted data.
+
+### 6. Run Migrations and Seed Database
+
+```bash
+php artisan migrate --seed
+```
+- Migrations: Updates your database schema according to the migration files.
+- Seeding: Populates your database with initial data (e.g., default records).
+
+### 7. Install Sanctum and Set Up API
+```bash
+php artisan install:api
+```
+This command sets up Laravel Sanctum for API authentication.
+
+### 8. Serve the Application
+```bash
+php artisan serve
+```
+Your application should now be running at http://localhost:8000.
+
+
+## API Endpoints
+
+### Public Routes
+
+#### Register
+##### POST /users
+
+```json
+{ 
+  "name": "John Doe", 
+  "email": "johndoe@example.com", 
+  "password": "password", 
+  "password_confirmation": "password" 
+}
+```
+#### Login
+##### POST /login
+
+```json
+{ 
+  "email": "johndoe@example.com", 
+  "password": "password" 
+}
+```
+
+### Protected Routes (Authentication required)
+
+| Endpoint                 | Method | Description                                      |
+|--------------------------|--------|--------------------------------------------------|
+| /books                   | GET    | Get list of all books (with pagination)         |
+| /books                   | POST   | Add a new book (Admin/Librarian only)           |
+| /books/{id}              | GET    | Get details of a specific book                  |
+| /books/{id}              | PUT    | Update a book (Admin/Librarian only)            |
+| /books/{id}              | DELETE | Delete a book (Admin only)                      |
+| /authors                 | GET    | Get list of all authors (with pagination)       |
+| /authors                 | POST   | Add a new author (Admin/Librarian only)         |
+| /authors/{id}            | GET    | Get details of a specific author                |
+| /authors/{id}            | PUT    | Update an author (Admin/Librarian only)         |
+| /authors/{id}            | DELETE | Delete an author (Admin only)                   |
+| /books/{book}/borrow     | POST   | Borrow a book (Authenticated users)             |
+| /books/{book}/return     | POST   | Return a borrowed book                          |
+| /borrow-records          | GET    | Get list of borrow records (Admin only)         |
+| /borrow-records/{id}     | GET    | View details of a specific borrow record        |
+| /logout                  | POST   | Logout a user                                   |
+
+
+
+## Testing with Postman
+
+### 1. **Import API Collection**:
+   - Open Postman.
+   - Click **Import** > **Link** and paste the following URL to import the API collection:
+
+     [Postman Collection](https://github.com/your-repo/library-management-system/raw/master/postman-collection.json)
+
+### 2. **Authentication Setup**
+
+- Register a user via the /users endpoint.
+- Use the /login endpoint to obtain the token.
+- In Postman, go to the Authorization tab and select Bearer Token. Paste the token from the login response.
+
+### 3. **Test the API**
+
+- **Register and Login:** Test user registration and login to obtain the authentication token.
+- **Protected Routes:** Include the token in the Authorization header (Bearer <token>) for all protected routes.
+- **Book Management:** Test adding, updating, and deleting books as an Admin or Librarian.
+- **Author Management:** Test adding, updating, and deleting authors as an Admin or Librarian.
+- **Borrowing & Returning Books:** Test the borrowing and returning system with authenticated users.
+- **User Management:** As an Admin, test viewing and updating user details.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
