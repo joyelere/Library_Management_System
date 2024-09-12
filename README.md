@@ -133,7 +133,7 @@ Your application should now be running at http://localhost:8000.
    - Open Postman.
    - Click **Import** > **Link** and paste the following URL to import the API collection:
 
-     [Postman Collection]https://github.com/joyelere/Library_Management_System.git/postman/Library Management API.postman_collection.json
+     [Postman Collection](https://github.com/joyelere/Library_Management_System/blob/da53c84bbbda232d73504bee7e4aec6dea64a7a2/postman/Library%20Management%20API.postman_collection.json)
 
 ### 2. **Authentication Setup**
 
