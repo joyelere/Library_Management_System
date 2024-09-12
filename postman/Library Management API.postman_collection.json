@@ -1,0 +1,354 @@
+{
+	"info": {
+		"_postman_id": "59803de1-8f9b-40f7-b955-1282157d59d7",
+		"name": "Library Management API",
+		"description": "Postman collection for the Library Management System API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31163386",
+		"_collection_link": "https://interstellar-shuttle-925408.postman.co/workspace/New-Team-Workspace~b8bb65b7-3777-40e6-b21f-7377971bf8e1/collection/31163386-59803de1-8f9b-40f7-b955-1282157d59d7?action=share&source=collection_link&creator=31163386"
+	},
+	"item": [
+		{
+			"name": "User Registration",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"johndoe@example.com\",\n  \"password\": \"password\",\n  \"password_confirmation\": \"password\"\n}"
+				},
+				"url": "http://localhost:8000/users"
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"johndoe@example.com\",\n  \"password\": \"password\"\n}"
+				},
+				"url": "http://localhost:8000/login"
+			},
+			"response": []
+		},
+		{
+			"name": "User Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"johndoe@example.com\",\n  \"password\": \"password\"\n}"
+				},
+				"url": "http://localhost:8000/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Books",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/books"
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Book Title\",\n  \"author\": \"Author Name\",\n  \"published_year\": 2023,\n  \"isbn\": \"1234567890123\"\n}"
+				},
+				"url": "http://localhost:8000/books"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Book Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/books/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Book",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"Updated Book Title\",\n  \"author\": \"Updated Author Name\",\n  \"published_year\": 2023,\n  \"isbn\": \"9876543210987\"\n}"
+				},
+				"url": "http://localhost:8000/books/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Book",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/books/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Borrow Book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/books/1/borrow"
+			},
+			"response": []
+		},
+		{
+			"name": "Return Book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/books/1/return"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/authors"
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/authors/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Updated Author Name\",\n  \"bio\": \"Updated biography.\"\n}"
+				},
+				"url": "http://localhost:8000/authors/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/authors/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Authors",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/authors"
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Author",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Author Name\",\n  \"bio\": \"Author biography.\"\n}"
+				},
+				"url": "http://localhost:8000/authors"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Author Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/authors/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Author",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Updated Author Name\",\n  \"bio\": \"Updated biography.\"\n}"
+				},
+				"url": "http://localhost:8000/authors/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Author",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <token>",
+						"type": "text"
+					}
+				],
+				"url": "http://localhost:8000/authors/1"
+			},
+			"response": []
+		}
+	]
+}
