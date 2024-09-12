@@ -51,7 +51,7 @@ class AuthorController extends Controller
     public function update(Request $request, Author $author)
     {
         // Authorization check
-        Gate::authorize('create', $author);
+        Gate::authorize('update', $author);
 
         // Update Author logic
         $authorAttributes = $request->validate([
@@ -73,7 +73,7 @@ class AuthorController extends Controller
     {
 
         // Authorization check
-        Gate::authorize('create', $author);
+        Gate::authorize('delete', $author);
 
         // Delete the author
         $author->delete();
